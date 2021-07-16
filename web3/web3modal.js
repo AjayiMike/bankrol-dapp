@@ -12,13 +12,14 @@ const init = () => {
     // refrence to account and connect button element
     const accountContainer = document.querySelector("#account-container");
     const connectBtn = document.querySelector("#walletConnect");
-    if (!window.web3.currentProvider.selectedAddress){
-        // display button
-        connectBtn.style.display = "block"
-    }else{
+    if (window.web3 && window.web3.currentProvider.selectedAddress){
         const theAddress = window.web3.currentProvider.selectedAddress;
         document.querySelector("#address").innerHTML = `${theAddress.substr(0, 5)}...${theAddress.substr(theAddress.length-5, theAddress.length)}`;
+        connectBtn.style.display = "none"
         accountContainer.style.display = "flex"
+    }else{
+        // display button
+        connectBtn.style.display = "block"
     }
 
     const providerOptions = {
