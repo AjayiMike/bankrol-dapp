@@ -28,6 +28,7 @@ const init = () => {
           options: {
             rpc: {
                 97: 'https://data-seed-prebsc-2-s2.binance.org:8545/',
+                56: 'https://bsc-dataseed1.defibit.io/'
             }
           }
         }
